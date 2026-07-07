@@ -202,17 +202,23 @@
   }
   .trips .l{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 
-  /* highlight blocks */
-  .highlights{display:flex;flex-direction:column;gap:9px;margin-top:16px}
+  /* highlight pills */
+  .highlights{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
   .work-feature .tags{margin-top:16px}
-  .hl{
-    display:flex;gap:11px;align-items:flex-start;
-    background:var(--signal-soft);border:1px solid var(--line);
-    border-left:2px solid var(--signal);border-radius:10px;padding:11px 13px;
+  .hpill{
+    font-family:var(--mono);font-size:12px;letter-spacing:.02em;
+    color:var(--ink);background:var(--signal-soft);
+    border:1px solid var(--signal-line);border-radius:999px;
+    padding:8px 13px;display:inline-flex;align-items:center;gap:8px;
   }
-  .hl .mk{color:var(--signal);font-size:11px;line-height:1.5;flex-shrink:0}
-  .hl p{margin:0;font-size:13px;color:var(--muted);line-height:1.45}
-  .hl p b{color:var(--ink);font-weight:500}
+  button.hpill{cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+  button.hpill:hover{background:var(--signal);color:#0C0E10;border-color:var(--signal)}
+  .hpill .pb{
+    width:16px;height:16px;border-radius:50%;flex-shrink:0;
+    border:1px solid currentColor;display:inline-flex;
+    align-items:center;justify-content:center;font-size:7px;color:var(--signal);
+  }
+  button.hpill:hover .pb{color:#0C0E10}
 
   /* featured card footer: url + demo pill */
   .card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px;flex-wrap:wrap}
@@ -241,12 +247,12 @@
   @keyframes fade{from{opacity:0}to{opacity:1}}
   .modal{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px}
   .frame{
-    aspect-ratio:9/16;height:min(74vh,640px);max-width:88vw;
+    height:min(80vh,720px);max-width:90vw;
     background:var(--panel);border:1px solid var(--line-2);border-radius:20px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    display:flex;align-items:center;justify-content:center;
     color:var(--faint);overflow:hidden;
   }
-  .frame video{width:100%;height:100%;object-fit:cover;border-radius:20px}
+  .frame video{height:100%;max-width:100%;width:auto;object-fit:contain;border-radius:20px;display:block}
   .frame .play{
     width:56px;height:56px;border-radius:50%;border:1px solid var(--signal-line);
     display:flex;align-items:center;justify-content:center;color:var(--signal);font-size:16px;
@@ -362,7 +368,7 @@
 
       <div class="hero-top">
         <h1>Chirag<span class="amp">.</span><br>Product engineer.</h1>
-        <p class="lede">Blending psychology, business and tech to build great products and good solutions. The best is yet to come.</p>
+        <p class="lede">Blending psychology, business and tech to build great products and sustainable solutions. The best is yet to come.</p>
         <div class="hero-social">
           <a href="https://www.linkedin.com/in/chirag-agarwal-0110911a9/" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 21 10.9 21 14v7h-4v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9z"/></svg>
@@ -379,7 +385,6 @@
       <div class="hero-meta">
         <span>EXP <b>6 yrs</b></span>
         <span>SHIPPED <b>4 products</b></span>
-        <span>FOCUS <b>AI · Agents</b></span>
         <span>EDU <b>IIT Delhi</b></span>
       </div>
     </section>
@@ -388,7 +393,7 @@
     <section class="card suno">
       <div class="work">
         <div class="head">
-          <div class="live"><span class="beat"></span> Live venture</div>
+          <div class="live"><span class="beat"></span> Live product</div>
         </div>
 
         <div class="suno-stats">
@@ -398,7 +403,7 @@
         </div>
 
         <h3>Suno Bhagwan</h3>
-        <div class="role">WhatsApp · Spiritual AI · Co-founder</div>
+        <div class="role">WhatsApp · Spiritual AI</div>
         <p>A WhatsApp-native AI companion for tier-2/3 India. Hindi and Hinglish. Text and audio conversations.</p>
 
         <div class="tags">
@@ -424,7 +429,7 @@
     <section class="card work-feature">
       <div class="work">
         <div class="head">
-          <div class="eyebrow">Selected work</div>
+          <div class="eyebrow">Latest work</div>
         </div>
         <div class="title-row">
           <div class="t">
@@ -432,21 +437,18 @@
             <div class="role">AI Travel · Personal Agent</div>
           </div>
           <div class="statnum">
-            <span class="n">N+</span>
+            <span class="n">8K+</span>
             <span class="l">trips / month</span>
           </div>
         </div>
-        <p>Built an AI-powered personal travel agent — turning imaginations and Instagram reels into planned trips and bookings. Detailed itineraries, flight and hotel recommendations, and booking, end to end.</p>
+        <p>Built an AI-powered personal travel agent — turning imaginations and Instagram reels into planned trips. Detailed itineraries, flight and hotel recommendations, and booking, end to end.</p>
 
         <div class="highlights">
-          <div class="hl">
-            <span class="mk">◆</span>
-            <p><b>Hybrid mobile &amp; web app</b> in React Native (Expo). Currently in testing — watch the demo below.</p>
-          </div>
-          <div class="hl">
-            <span class="mk">◆</span>
-            <p><b>Multi-agent orchestration</b> — independent agents for flight, hotel, and itinerary planning.</p>
-          </div>
+          <span class="hpill">Hybrid mobile &amp; web app</span>
+          <button class="hpill" type="button" data-demo-open data-demo-src="1783446989842226.mp4" data-demo-cap="Airial · Reels to trip" aria-label="Reels to trip — watch demo">
+            <span class="pb">▶</span> Reels to trip
+          </button>
+          <span class="hpill">Multi-agent orchestration</span>
         </div>
 
         <div class="tags">
@@ -461,7 +463,7 @@
 
         <div class="card-foot">
           <a class="airlink" href="https://airial.travel" target="_blank" rel="noopener">airial.travel <span class="g">↗</span></a>
-          <button class="pill" type="button" data-demo-open><span class="tri">▶</span> Mobile app demo</button>
+          <button class="pill" type="button" data-demo-open data-demo-src="1783444954506886.mp4" data-demo-cap="Airial · Mobile app demo"><span class="tri">▶</span> Mobile app demo</button>
         </div>
       </div>
     </section>
@@ -494,33 +496,19 @@
       </div>
     </a>
 
-    <!-- NOW -->
+    <!-- APART FROM WORK -->
     <section class="card now">
-      <div class="eyebrow"><span class="idx">◆</span> Currently</div>
-      <h3>Where my time goes</h3>
+      <div class="eyebrow"><span class="idx">◆</span> Beyond the screen</div>
       <ul>
-        <li><b>Agentic workflows</b> — multi-agent orchestration in production</li>
-        <li><b>RAG pipelines</b> — retrieval, memory, and context design</li>
-        <li><b>Token-cost optimization</b> — prompt caching, just-in-time retrieval</li>
+        <li><b>Led a 20+ member dance team</b> in college, competing in national dance competitions across India.</li>
+        <li><b>Acquired Sales skills</b> hands-on in a small family business.</li>
       </ul>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="card about">
-      <div class="inner">
-        <div class="lead">
-          <div class="eyebrow">About</div>
-          <h3>Product engineer, physics brain</h3>
-        </div>
-        <p>Applied physics at <b>IIT Delhi</b>, then six years building products people actually use. I care about the whole path — from user psychology and first principles to the schema migration that ships it clean. Lately that means <b>AI-native product engineering</b>: turning capable models into things that hold up in real hands.</p>
-      </div>
     </section>
 
   </main>
 
   <div class="topbar" style="padding-top:22px;padding-bottom:4px">
     <span>© 2026 Chirag</span>
-    <span>Built from scratch</span>
   </div>
 
 </div>
@@ -529,11 +517,7 @@
 <div class="modal-backdrop" id="demoModal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-label="Airial mobile app demo">
     <button class="modal-close" type="button" data-demo-close aria-label="Close demo">✕</button>
-    <div class="frame">
-      <!-- Replace this placeholder with: <video controls playsinline src="your-demo.mp4"></video> -->
-      <div class="play">▶</div>
-      <div class="ph">Demo video placeholder<br>drop your app demo here</div>
-    </div>
+    <div class="frame"></div>
     <div class="modal-cap">Airial · Mobile app demo</div>
   </div>
 </div>
@@ -543,13 +527,27 @@
     var modal = document.getElementById('demoModal');
     if(!modal) return;
     var closer = modal.querySelector('[data-demo-close]');
+    var frame = modal.querySelector('.frame');
+    var cap = modal.querySelector('.modal-cap');
     var openers = document.querySelectorAll('[data-demo-open]');
-    function open(){ modal.hidden = false; document.body.style.overflow = 'hidden'; closer.focus(); }
+    function open(src, caption){
+      frame.innerHTML = '';
+      var v = document.createElement('video');
+      v.src = src; v.controls = true; v.autoplay = true; v.playsInline = true;
+      frame.appendChild(v);
+      if(caption) cap.textContent = caption;
+      modal.hidden = false; document.body.style.overflow = 'hidden'; closer.focus();
+    }
     function close(){
       modal.hidden = true; document.body.style.overflow = '';
       var v = modal.querySelector('video'); if(v){ v.pause(); }
+      frame.innerHTML = '';
     }
-    openers.forEach(function(b){ b.addEventListener('click', open); });
+    openers.forEach(function(b){
+      b.addEventListener('click', function(){
+        open(b.getAttribute('data-demo-src'), b.getAttribute('data-demo-cap'));
+      });
+    });
     closer.addEventListener('click', close);
     modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
     document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) close(); });
