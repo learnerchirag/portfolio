@@ -390,10 +390,11 @@
     </section>
 
     <!-- SUNO BHAGWAN (top-right, beside hero) -->
-    <section class="card suno">
+    <section class="card suno link" data-card-href="https://sunobhagwan.com">
       <div class="work">
         <div class="head">
           <div class="live"><span class="beat"></span> Live product</div>
+          <span class="arrow">↗</span>
         </div>
 
         <div class="suno-stats">
@@ -416,7 +417,7 @@
         </div>
 
         <div class="card-foot">
-          <a class="airlink" href="https://sunobhagwan.in" target="_blank" rel="noopener">sunobhagwan.in <span class="g">↗</span></a>
+          <a class="airlink" href="https://sunobhagwan.com" target="_blank" rel="noopener">sunobhagwan.com <span class="g">↗</span></a>
           <a class="pill" href="https://wa.me/+918949609817" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg>
             Chat on WhatsApp
@@ -426,10 +427,11 @@
     </section>
 
     <!-- FEATURED WORK -->
-    <section class="card work-feature">
+    <section class="card work-feature link" data-card-href="https://airial.travel">
       <div class="work">
         <div class="head">
           <div class="eyebrow">Latest work</div>
+          <span class="arrow">↗</span>
         </div>
         <div class="title-row">
           <div class="t">
@@ -469,7 +471,7 @@
     </section>
 
     <!-- WORK A -->
-    <a class="card work-a link" href="https://junio.in/" target="_blank" rel="noopener">
+    <section class="card work-a link" data-card-href="https://junio.in/">
       <div class="work">
         <div class="head">
           <div class="eyebrow">Work · Founding Engineer</div>
@@ -493,8 +495,11 @@
           <span class="tag">SDK integrations</span>
           <span class="tag">Postgres</span>
         </div>
+        <div class="card-foot">
+          <a class="airlink" href="https://junio.in/" target="_blank" rel="noopener">junio.in <span class="g">↗</span></a>
+        </div>
       </div>
-    </a>
+    </section>
 
     <!-- APART FROM WORK -->
     <section class="card now">
@@ -546,6 +551,14 @@
     openers.forEach(function(b){
       b.addEventListener('click', function(){
         open(b.getAttribute('data-demo-src'), b.getAttribute('data-demo-cap'));
+      });
+    });
+
+    // tap anywhere on a card to open its link — but let inner links/buttons handle their own clicks
+    document.querySelectorAll('[data-card-href]').forEach(function(card){
+      card.addEventListener('click', function(e){
+        if(e.target.closest('a,button')) return;
+        window.open(card.getAttribute('data-card-href'), '_blank', 'noopener');
       });
     });
     closer.addEventListener('click', close);
