@@ -497,6 +497,7 @@
         </div>
         <div class="card-foot">
           <a class="airlink" href="https://junio.in/" target="_blank" rel="noopener">junio.in <span class="g">↗</span></a>
+          <button class="pill" type="button" data-demo-open data-demo-src="junio-demo.mp4" data-demo-cap="Junio · Mobile app demo"><span class="tri">▶</span> Mobile app demo</button>
         </div>
       </div>
     </section>
@@ -540,7 +541,7 @@
       var v = document.createElement('video');
       v.src = src; v.controls = true; v.autoplay = true; v.playsInline = true;
       frame.appendChild(v);
-      if(caption) cap.textContent = caption;
+      if(caption){ cap.textContent = caption; modal.querySelector('.modal').setAttribute('aria-label', caption); }
       modal.hidden = false; document.body.style.overflow = 'hidden'; closer.focus();
     }
     function close(){
